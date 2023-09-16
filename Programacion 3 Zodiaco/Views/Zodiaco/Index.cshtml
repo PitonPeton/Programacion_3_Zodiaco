@@ -1,0 +1,42 @@
+﻿@*Strong Typed*@
+@model FechaViewModel
+@{
+    ViewData["Title"] = "Home";
+    var message = (string)ViewData["message"];
+}
+
+<div class="row">
+    <h1 style="text-align:center;">Determine su signo Zodiacal.</h1>
+</div>
+
+<div class="h-100 d-flex align-items-center justify-content-center">
+    <form method="post" asp-controller="Zodiaco" asp-action="Index">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col" colspan="2" class="align-items-center justify-content-center">
+                        <h3>Inserte su fecha de nacimiento</h3>
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <tr>
+                    <td>
+                        <input class="form-control" asp-for="datetime" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:center;">
+                        <button type="submit" class="btn btn-primary">Ver Signo</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
+
+@if (message != null)
+{
+    <h1 style="text-align:center;">Tu signo es: @message</h1>
+}
